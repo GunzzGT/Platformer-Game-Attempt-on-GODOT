@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://celr07bvqfrif"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_s70b6"]
+[ext_resource type="SpriteFrames" uid="uid://raj1yxraetaw" path="res://animated_sprite1.tres" id="2_vv5qy"]
+[ext_resource type="Texture2D" uid="uid://bc514l563qmg1" path="res://icon.svg" id="10_vbvjy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bq8hu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6mwf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(367, 125)
+script = ExtResource("1_s70b6")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -25)
+sprite_frames = ExtResource("2_vv5qy")
+animation = &"sprite2-jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_bq8hu")
+
+[node name="FLOOR" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(368, 279)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/StaticBody2D"]
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/StaticBody2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_f6mwf")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(241, 279)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/StaticBody2D3"]
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/StaticBody2D3"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_f6mwf")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(495, 279)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/StaticBody2D2"]
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/StaticBody2D2"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_f6mwf")
