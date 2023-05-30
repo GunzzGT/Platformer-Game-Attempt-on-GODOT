@@ -1,60 +1,109 @@
-[gd_scene load_steps=6 format=3 uid="uid://celr07bvqfrif"]
+[gd_scene load_steps=8 format=3 uid="uid://celr07bvqfrif"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_s70b6"]
 [ext_resource type="SpriteFrames" uid="uid://raj1yxraetaw" path="res://animated_sprite1.tres" id="2_vv5qy"]
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="3_8830d"]
 [ext_resource type="Texture2D" uid="uid://bc514l563qmg1" path="res://icon.svg" id="10_vbvjy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bq8hu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3kyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6mwf"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(367, 125)
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(92, 87)
 script = ExtResource("1_s70b6")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(0, -25)
 sprite_frames = ExtResource("2_vv5qy")
 animation = &"sprite2-jump"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_bq8hu")
 
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(688, 100)
+script = ExtResource("3_8830d")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_r3kyu")
+
 [node name="FLOOR" type="Node" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="FLOOR"]
-position = Vector2(368, 279)
+[node name="FloorTile1" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(88, 560)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="FLOOR/StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/FloorTile1"]
 texture = ExtResource("10_vbvjy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/FloorTile1"]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_f6mwf")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="FLOOR"]
-position = Vector2(241, 279)
+[node name="FloorTile2" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(238, 508)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="FLOOR/StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/FloorTile2"]
 texture = ExtResource("10_vbvjy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/FloorTile2"]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_f6mwf")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="FLOOR"]
-position = Vector2(495, 279)
+[node name="FloorTile3" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(388, 443)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="FLOOR/StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/FloorTile3"]
 texture = ExtResource("10_vbvjy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/FloorTile3"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_f6mwf")
+
+[node name="FloorTile4" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(527, 378)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/FloorTile4"]
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/FloorTile4"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_f6mwf")
+
+[node name="FloorTile5" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(667, 313)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/FloorTile5"]
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/FloorTile5"]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_f6mwf")
+
+[node name="FloorTile6" type="StaticBody2D" parent="FLOOR"]
+position = Vector2(808, 225)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="FLOOR/FloorTile6"]
+texture = ExtResource("10_vbvjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FLOOR/FloorTile6"]
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_f6mwf")
